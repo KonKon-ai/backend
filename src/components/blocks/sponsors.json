@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_blocks_sponsors",
+  "info": {
+    "displayName": "Sponsors"
+  },
+  "options": {},
+  "attributes": {
+    "tier": {
+      "type": "string"
+    },
+    "sponsor": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    }
+  }
+}

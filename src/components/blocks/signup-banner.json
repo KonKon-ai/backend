@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_signup_banners",
+  "info": {
+    "displayName": "Signup Banner"
+  },
+  "options": {},
+  "attributes": {
+    "signupLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.link"
+    },
+    "logoLink": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.link"
+    }
+  }
+}

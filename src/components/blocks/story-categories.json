@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_blocks_story_categories",
+  "info": {
+    "displayName": "Story Categories"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "category": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.category-card"
+    }
+  }
+}

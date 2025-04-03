@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_parallax_banners",
+  "info": {
+    "displayName": "Parallax Banner"
+  },
+  "options": {},
+  "attributes": {
+    "parallaxBanner": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
