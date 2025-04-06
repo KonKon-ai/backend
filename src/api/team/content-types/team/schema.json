@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "sponsors_pages",
+  "collectionName": "teams",
   "info": {
-    "singularName": "sponsors-page",
-    "pluralName": "sponsors-pages",
-    "displayName": "Sponsors Page",
-    "description": ""
+    "singularName": "team",
+    "pluralName": "teams",
+    "displayName": "Team"
   },
   "options": {
     "draftAndPublish": true
@@ -17,10 +16,10 @@
     "description": {
       "type": "text"
     },
-    "sponsors": {
+    "teamMember": {
       "type": "component",
       "repeatable": true,
-      "component": "blocks.sponsors"
+      "component": "shared.team-member"
     }
   }
 }

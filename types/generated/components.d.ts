@@ -108,6 +108,28 @@ export interface SharedLink extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedListItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_list_items';
+  info: {
+    displayName: 'listItem';
+  };
+  attributes: {
+    listItem: Schema.Attribute.Text;
+  };
+}
+
+export interface SharedTeamMember extends Struct.ComponentSchema {
+  collectionName: 'components_shared_team_members';
+  info: {
+    displayName: 'Team Member';
+  };
+  attributes: {
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -120,6 +142,8 @@ declare module '@strapi/strapi' {
       'layout.header': LayoutHeader;
       'shared.category-card': SharedCategoryCard;
       'shared.link': SharedLink;
+      'shared.list-item': SharedListItem;
+      'shared.team-member': SharedTeamMember;
     }
   }
 }
