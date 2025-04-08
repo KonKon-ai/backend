@@ -1,4 +1,44 @@
-# 🚀 Getting started with Strapi
+# Konkon.AI - Film Festival (Strapi - Backend)
+
+## Installation Guide
+
+### STEP 1: Clone the repository & Change Directory
+
+```bash
+git clone git@github.com:KonKon-ai/backend.git
+cd backend
+```
+
+### STEP 2: Install backend dependencies
+
+```bash
+npm install
+```
+
+### STEP 3: Create `.env` file in src/client
+
+```sh
+HOST=0.0.0.0
+PORT=1337
+APP_KEYS="toBeModified1,toBeModified2"
+API_TOKEN_SALT=tobemodified
+ADMIN_JWT_SECRET=tobemodified
+TRANSFER_TOKEN_SALT=tobemodified
+JWT_SECRET=tobemodified
+```
+
+Note: An .env.example file has been provided in this repository for clarity
+
+### STEP 4: Import Encrypted Data
+
+```bash
+# This will import the "konkon-ai.tar.gz.enc" file in the root of the repository. Please provide a direct request to receive the encryption key
+npm run strapi import -- -f ./konkon-ai.tar.gz.enc --key {key available upon request}
+```
+
+
+
+### 🚀 Getting started with Strapi
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
 
@@ -6,7 +46,7 @@ Strapi comes with a full featured [Command Line Interface](https://docs.strapi.i
 
 Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
 
-```
+```bash
 npm run develop
 # or
 yarn develop
@@ -16,7 +56,7 @@ yarn develop
 
 Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
 
-```
+```bash
 npm run start
 # or
 yarn start
@@ -26,7 +66,7 @@ yarn start
 
 Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
 
-```
+```bash
 npm run build
 # or
 yarn build
@@ -36,7 +76,7 @@ yarn build
 
 Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
 
-```
+```bash
 yarn strapi deploy
 ```
 
