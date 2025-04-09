@@ -93,6 +93,21 @@ export interface SharedCategoryCard extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedFormInput extends Struct.ComponentSchema {
+  collectionName: 'components_shared_form_inputs';
+  info: {
+    displayName: 'Form Input';
+  };
+  attributes: {
+    inputId: Schema.Attribute.String;
+    inputType: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    name: Schema.Attribute.String;
+    placeholderText: Schema.Attribute.String;
+    rows: Schema.Attribute.Integer;
+  };
+}
+
 export interface SharedLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_links';
   info: {
@@ -141,6 +156,7 @@ declare module '@strapi/strapi' {
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
       'shared.category-card': SharedCategoryCard;
+      'shared.form-input': SharedFormInput;
       'shared.link': SharedLink;
       'shared.list-item': SharedListItem;
       'shared.team-member': SharedTeamMember;

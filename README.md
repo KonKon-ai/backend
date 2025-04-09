@@ -32,8 +32,8 @@ Note: An .env.example file has been provided in this repository for clarity
 ### STEP 4: Import Encrypted Data
 
 ```bash
-# This will import the "konkon-ai.tar.gz.enc" file in the root of the repository. Please provide a direct request to receive the encryption key
-npm run strapi import -- -f ./konkon-ai.tar.gz.enc --key {key available upon request}
+# This will import the "konkon-ai.tar.gz.enc" file in the root of the repository. Please provide a direct request to receive the decryption key
+npm run import
 ```
 
 
