@@ -147,6 +147,18 @@ export interface SharedTeamMember extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedVideo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_videos';
+  info: {
+    displayName: 'Video';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    videoUrl: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -162,6 +174,7 @@ declare module '@strapi/strapi' {
       'shared.link': SharedLink;
       'shared.list-item': SharedListItem;
       'shared.team-member': SharedTeamMember;
+      'shared.video': SharedVideo;
     }
   }
 }

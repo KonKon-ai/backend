@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_videos",
+  "info": {
+    "displayName": "Video"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "videoUrl": {
+      "type": "string"
+    }
+  }
+}

@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   collectionName: 'abouts';
   info: {
+    description: '';
     displayName: 'About';
     pluralName: 'abouts';
     singularName: 'about';
@@ -394,7 +395,7 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    video: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    video: Schema.Attribute.Component<'shared.video', true>;
   };
 }
 

@@ -4,22 +4,13 @@
   "info": {
     "singularName": "about",
     "pluralName": "abouts",
-    "displayName": "About"
+    "displayName": "About",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "video": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
     "heading": {
       "type": "string"
     },
@@ -35,6 +26,11 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.link"
+    },
+    "video": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.video"
     }
   }
 }
