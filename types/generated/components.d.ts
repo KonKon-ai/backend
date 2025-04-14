@@ -16,10 +16,12 @@ export interface BlocksHero extends Struct.ComponentSchema {
 export interface BlocksParallaxBanner extends Struct.ComponentSchema {
   collectionName: 'components_blocks_parallax_banners';
   info: {
+    description: '';
     displayName: 'Parallax Banner';
   };
   attributes: {
-    parallaxBanner: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
+    backgroundLayer: Schema.Attribute.Media<'images', true>;
+    batmanLayer: Schema.Attribute.Media<'images', true>;
   };
 }
 

@@ -1,18 +1,26 @@
 {
   "collectionName": "components_blocks_parallax_banners",
   "info": {
-    "displayName": "Parallax Banner"
+    "displayName": "Parallax Banner",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "parallaxBanner": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos"
-      ],
+    "backgroundLayer": {
       "type": "media",
-      "multiple": false
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "batmanLayer": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

@@ -25,7 +25,10 @@ const populate = {
       },
       "blocks.parallax-banner": {
         populate: {
-          parallaxBanner: {
+          backgroundLayer: {
+            fields: ["alternativeText", "url"],
+          },
+          batmanLayer: {
             fields: ["alternativeText", "url"],
           },
         },
