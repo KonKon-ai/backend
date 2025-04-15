@@ -14,6 +14,18 @@ const populate = {
     },
   },
   video: true,
+  signupBanner: {
+    populate: {
+      signupLink: true,
+      logoLink: {
+        populate: {
+          image: {
+            fields: ['alternativeText', 'url'],
+          },
+        },
+      },
+    },
+  },
 };
 
 export default (config, { strapi }: { strapi: Core.Strapi }) => {
