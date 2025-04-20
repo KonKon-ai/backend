@@ -39,11 +39,12 @@ export interface BlocksSignupBanner extends Struct.ComponentSchema {
 export interface BlocksSponsors extends Struct.ComponentSchema {
   collectionName: 'components_blocks_sponsors';
   info: {
+    description: '';
     displayName: 'Sponsors';
   };
   attributes: {
-    sponsor: Schema.Attribute.Component<'shared.link', true>;
-    tier: Schema.Attribute.String;
+    sponsors: Schema.Attribute.Relation<'oneToMany', 'api::sponsor.sponsor'>;
+    tierName: Schema.Attribute.String;
   };
 }
 
@@ -61,25 +62,33 @@ export interface BlocksStoryCategories extends Struct.ComponentSchema {
 export interface LayoutFooter extends Struct.ComponentSchema {
   collectionName: 'components_layout_footers';
   info: {
+    description: '';
     displayName: 'Footer';
   };
   attributes: {
     logo: Schema.Attribute.Component<'shared.link', false>;
-    navItems: Schema.Attribute.Component<'shared.link', true>;
-    socialLinks: Schema.Attribute.Component<'shared.link', true>;
+    nav_items: Schema.Attribute.Relation<'oneToMany', 'api::nav-item.nav-item'>;
+    social_links: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social-link.social-link'
+    >;
   };
 }
 
 export interface LayoutHeader extends Struct.ComponentSchema {
   collectionName: 'components_layout_headers';
   info: {
+    description: '';
     displayName: 'Header';
   };
   attributes: {
     cta: Schema.Attribute.Component<'shared.link', false>;
     logo: Schema.Attribute.Component<'shared.link', false>;
-    navItems: Schema.Attribute.Component<'shared.link', true>;
-    socialLinks: Schema.Attribute.Component<'shared.link', true>;
+    nav_items: Schema.Attribute.Relation<'oneToMany', 'api::nav-item.nav-item'>;
+    social_links: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social-link.social-link'
+    >;
   };
 }
 
@@ -113,6 +122,7 @@ export interface SharedFormInput extends Struct.ComponentSchema {
 export interface SharedLink extends Struct.ComponentSchema {
   collectionName: 'components_shared_links';
   info: {
+    description: '';
     displayName: 'Link';
   };
   attributes: {

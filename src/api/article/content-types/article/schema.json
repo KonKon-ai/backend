@@ -17,7 +17,7 @@
     "description": {
       "type": "text"
     },
-    "featureImage": {
+    "featuredImage": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -46,6 +46,19 @@
     },
     "author": {
       "type": "string"
+    },
+    "tag": {
+      "type": "enumeration",
+      "enum": [
+        "Narrative",
+        "Music Video",
+        "Marketing & Advertisement",
+        "Trailer",
+        "Rendering & VFX",
+        "Social Media",
+        "Open Format",
+        "Behind The Scenes"
+      ]
     }
   }
 }

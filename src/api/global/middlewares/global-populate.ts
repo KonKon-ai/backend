@@ -10,42 +10,70 @@ const populate = {
       logo: {
         populate: {
           image: {
-            fields:["alternativeText", "url"]
-          }
-        }
+            fields: ['alternativeText', 'url'],
+          },
+        },
       },
-      navItems: true,
-      socialLinks: {
+      nav_items: {
         populate: {
-          image: {
-            fields:["alternativeText", "url"]
-          }
-        }
+          navItems: {
+            populate: {
+              image: {
+                fields: ['alternativeText', 'url'],
+              },
+            },
+          },
+        },
       },
-      cta: true
-    }
+      social_links: {
+        populate: {
+          socialLink: {
+            populate: {
+              image: {
+                fields: ['alternativeText', 'url'],
+              },
+            },
+          },
+        },
+      },
+      cta: true,
+    },
   },
-  
   footer: {
     populate: {
       logo: {
         populate: {
           image: {
-            fields:["alternativeText", "url"]
-          }
-        }
+            fields: ['alternativeText', 'url'],
+          },
+        },
       },
-      navItems: true,
-      socialLinks: {
+      nav_items: {
         populate: {
-          image: {
-            fields:["alternativeText", "url"]
-          }
-        }
-      }
-    }
-  }
-}
+          navItems: {
+            populate: {
+              image: {
+                fields: ['alternativeText', 'url'],
+              },
+            },
+          },
+        },
+      },
+      social_links: {
+        populate: {
+          socialLink: {
+            populate: {
+              image: {
+                fields: ['alternativeText', 'url'],
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+};
+
 
 export default (config, { strapi }: { strapi: Core.Strapi }) => {
   // Add your own logic here.

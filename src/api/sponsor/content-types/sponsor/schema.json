@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sponsors",
+  "info": {
+    "singularName": "sponsor",
+    "pluralName": "sponsors",
+    "displayName": "Sponsor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "tierName": {
+      "type": "enumeration",
+      "enum": [
+        "Tier 1 Sponsors",
+        "Tier 2 Sponsors",
+        "Tier 3 Sponsors"
+      ],
+      "required": true
+    },
+    "sponsor": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.link"
+    }
+  }
+}

@@ -1,7 +1,8 @@
 {
   "collectionName": "components_layout_headers",
   "info": {
-    "displayName": "Header"
+    "displayName": "Header",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -10,20 +11,20 @@
       "repeatable": false,
       "component": "shared.link"
     },
-    "navItems": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.link"
-    },
-    "socialLinks": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.link"
-    },
     "cta": {
       "type": "component",
       "repeatable": false,
       "component": "shared.link"
+    },
+    "nav_items": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::nav-item.nav-item"
+    },
+    "social_links": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::social-link.social-link"
     }
   }
 }

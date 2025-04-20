@@ -12,17 +12,6 @@ const populate = {
           submit: true,
         },
       },
-      "blocks.sponsors": {
-        populate: {
-          sponsor: {
-            populate: {
-              image: {
-                fields: ["alternativeText", "url"],
-              },
-            },
-          },
-        },
-      },
       "blocks.parallax-banner": {
         populate: {
           backgroundLayer: {
@@ -57,6 +46,17 @@ const populate = {
         },
       },
     },
+  },
+  sponsors: {
+    populate: {
+      sponsor: {
+        populate: {
+          image: {
+            fields: ["alternativeText", "url"],
+          },
+        },
+      },
+    }
   },
 };
 

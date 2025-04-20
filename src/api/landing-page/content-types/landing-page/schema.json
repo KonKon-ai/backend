@@ -26,6 +26,11 @@
         "blocks.parallax-banner",
         "blocks.signup-banner"
       ]
+    },
+    "sponsors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sponsor.sponsor"
     }
   }
 }

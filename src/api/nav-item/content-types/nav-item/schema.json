@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "nav_items",
+  "info": {
+    "singularName": "nav-item",
+    "pluralName": "nav-items",
+    "displayName": "Nav Item",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "navItems": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.link"
+    },
+    "label": {
+      "type": "string",
+      "unique": false,
+      "required": false
+    }
+  }
+}

@@ -18,9 +18,9 @@
       "type": "text"
     },
     "sponsors": {
-      "type": "component",
-      "repeatable": true,
-      "component": "blocks.sponsors"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::sponsor.sponsor"
     }
   }
 }
