@@ -11,7 +11,7 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi",
-    "import": "strapi import -f ./konkon-ai250416.tar.gz.enc",
+    "import": "strapi import -f ./konkon-ai250424.tar.gz.enc",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
