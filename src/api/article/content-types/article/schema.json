@@ -45,20 +45,15 @@
       "type": "richtext"
     },
     "author": {
-      "type": "string"
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "articles"
     },
-    "tag": {
-      "type": "enumeration",
-      "enum": [
-        "Narrative",
-        "Music Video",
-        "Marketing & Advertisement",
-        "Trailer",
-        "Rendering & VFX",
-        "Social Media",
-        "Open Format",
-        "Behind The Scenes"
-      ]
+    "contentTags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
     }
   }
 }

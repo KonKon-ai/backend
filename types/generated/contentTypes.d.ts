@@ -412,7 +412,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    author: Schema.Attribute.String;
+    author: Schema.Attribute.Relation<'manyToOne', 'api::author.author'>;
     blocks: Schema.Attribute.DynamicZone<
       [
         'blocks.story-categories',
@@ -423,6 +423,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       ]
     >;
     content: Schema.Attribute.RichText;
+    contentTags: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -436,22 +437,45 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
-    tag: Schema.Attribute.Enumeration<
-      [
-        'Narrative',
-        'Music Video',
-        'Marketing & Advertisement',
-        'Trailer',
-        'Rendering & VFX',
-        'Social Media',
-        'Open Format',
-        'Behind The Scenes',
-      ]
-    >;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
+  collectionName: 'authors';
+  info: {
+    displayName: 'Author';
+    pluralName: 'authors';
+    singularName: 'author';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    bio: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fullName: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::author.author'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    userId: Schema.Attribute.Relation<
+      'oneToOne',
+      'plugin::users-permissions.user'
+    >;
   };
 }
 
@@ -499,6 +523,7 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     blocks: Schema.Attribute.DynamicZone<
       [
         'blocks.hero',
@@ -550,6 +575,45 @@ export interface ApiNavItemNavItem extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     navItems: Schema.Attribute.Component<'shared.link', false>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiNewsArticleNewsArticle extends Struct.SingleTypeSchema {
+  collectionName: 'news';
+  info: {
+    displayName: 'News';
+    pluralName: 'news';
+    singularName: 'news-article';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
+    blocks: Schema.Attribute.DynamicZone<
+      [
+        'blocks.story-categories',
+        'blocks.sponsors',
+        'blocks.signup-banner',
+        'blocks.parallax-banner',
+        'blocks.hero',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    heading: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-article.news-article'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -675,6 +739,32 @@ export interface ApiSubscriberSubscriber extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTagTag extends Struct.CollectionTypeSchema {
+  collectionName: 'tags';
+  info: {
+    displayName: 'Tag';
+    pluralName: 'tags';
+    singularName: 'tag';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1219,13 +1309,16 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
+      'api::author.author': ApiAuthorAuthor;
       'api::global.global': ApiGlobalGlobal;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::nav-item.nav-item': ApiNavItemNavItem;
+      'api::news-article.news-article': ApiNewsArticleNewsArticle;
       'api::social-link.social-link': ApiSocialLinkSocialLink;
       'api::sponsor.sponsor': ApiSponsorSponsor;
       'api::sponsors-page.sponsors-page': ApiSponsorsPageSponsorsPage;
       'api::subscriber.subscriber': ApiSubscriberSubscriber;
+      'api::tag.tag': ApiTagTag;
       'api::team.team': ApiTeamTeam;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

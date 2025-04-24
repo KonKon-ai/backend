@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "news",
+  "info": {
+    "singularName": "news-article",
+    "pluralName": "news",
+    "displayName": "News"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.story-categories",
+        "blocks.sponsors",
+        "blocks.signup-banner",
+        "blocks.parallax-banner",
+        "blocks.hero"
+      ]
+    }
+  }
+}
