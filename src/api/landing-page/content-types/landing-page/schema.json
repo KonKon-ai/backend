@@ -31,11 +31,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::sponsor.sponsor"
-    },
-    "articles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article"
     }
   }
 }

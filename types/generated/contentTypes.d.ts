@@ -523,7 +523,6 @@ export interface ApiLandingPageLandingPage extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     blocks: Schema.Attribute.DynamicZone<
       [
         'blocks.hero',
