@@ -93,8 +93,6 @@ export default factories.createCoreController(
         data: {
           id: newsArticle.id,
           attributes: {
-            sort,
-            sortField,
             ...newsArticle,
             articlesCollection, // Append the dynamically fetched articles
           },
