@@ -585,6 +585,7 @@ export interface ApiNavItemNavItem extends Struct.CollectionTypeSchema {
 export interface ApiNewsArticleNewsArticle extends Struct.SingleTypeSchema {
   collectionName: 'news';
   info: {
+    description: '';
     displayName: 'News';
     pluralName: 'news';
     singularName: 'news-article';
@@ -593,7 +594,6 @@ export interface ApiNewsArticleNewsArticle extends Struct.SingleTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     blocks: Schema.Attribute.DynamicZone<
       [
         'blocks.story-categories',

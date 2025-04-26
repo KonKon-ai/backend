@@ -4,7 +4,8 @@
   "info": {
     "singularName": "news-article",
     "pluralName": "news",
-    "displayName": "News"
+    "displayName": "News",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,11 +16,6 @@
     },
     "description": {
       "type": "text"
-    },
-    "articles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article"
     },
     "blocks": {
       "type": "dynamiczone",
