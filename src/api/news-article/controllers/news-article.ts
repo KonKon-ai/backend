@@ -28,7 +28,22 @@ export default factories.createCoreController(
         {
           fields: ["heading", "description"], // Include heading and description fields
           populate: {
-            blocks: true, // Include dynamic zone blocks
+            blocks: {
+              on: {
+                "blocks.signup-banner": {
+                  populate: {
+                    signupLink: true,
+                    logoLink: {
+                      populate: {
+                        image: {
+                          fields: ["alternativeText", "url"],
+                        },
+                      },
+                    },
+                  },
+                },
+              }, // Populate blocks with specific conditions
+            }, // Include dynamic zone blocks
           },
         }
       );
